@@ -434,3 +434,23 @@ clear
 rm -rf .git
 git init
 git add .
+git commit -m "01-boilerplate"
+git branch -M main
+git remote set-url origin https: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github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git remote add origin https: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github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git remote set-url origin https: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github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git push -u origin
+__vsc_prompt_cmd_original
+clear
+git remove origin
+git remore remove origin
+git remote remove origin
+git remote add origin https://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github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git remote set-url origin https://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github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git push -u origin main
+git remote remove origin
+git remote add origin https://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@github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git remote set-url origin https://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@github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git push origin -u main
+git push origin -u main
+git add .
