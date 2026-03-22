@@ -1,0 +1,436 @@
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ "${VSCODE_PREVENT_SHELL_HISTORY:-}" = "1" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+[ -z "${VSCODE_PYTHON_AUTOACTIVATE_GUARD:-}" ]
+export VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+[ -n "${VSCODE_PYTHON_BASH_ACTIVATE:-}" ]
+for var in "${!VSCODE_PYTHON_@}"
+case "$var" in
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "${HISTCONTROL:-}" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+echo hello terminal
+pwd
+ls --color=auto
+cd freeCodeCamp
+pwd
+ls --color=auto
+cd test
+pwd
+ls --color=auto
+cd ..
+ls --color=auto
+cat package.json
+more package.json
+clear
+ls --color=auto
+cd node_modules
+ls --color=auto
+ls --color=auto -l
+cd has
+ls --color=auto
+more README.md
+ls --color=auto
+more LICENCE-MIT
+cd LICENSE-MIT
+cd LICENSE-MIT
+more LICENSE-MIT
+__vsc_prompt_cmd_original
+clear
+ls --color=auto
+cd src
+__vsc_prompt_cmd_original
+ls --color=auto
+pwd
+ls --color=auto
+more index.js
+ls --color=auto
+cd ..
+ls --color=auto
+cd ..
+cd ../..
+ls --color=auto
+clear
+mkdir website
+ls --color=auto
+cd website
+ls --color=auto
+echo hello website
+touch index.html
+touch styles.css
+ls --color=auto
+touch index.js
+touch .gitignore
+ls --color=auto
+ls --color=auto -l
+--help
+ls --color=auto --help
+ls --color=auto -a
+cd .
+touch background.jpg
+touch image.png
+touch header.png
+touch footer.jpg
+touch footer.jpeg
+ls --color=auto
+rm -rf footer.jpg
+touch roboto.font
+touch lato.font
+touch menlo.font
+ls --color=auto
+touch codeAlly.svg
+ls --color=auto
+rm -rf codeAlly.svg
+touch CodeAlly.svh
+touch CodeAlly.svg
+ls --color=auto
+rm -rf CodeAlly.svh
+clear
+touch CodeRoad.svh
+rm -rf CodeRoad.svh
+touch CodeRoad.svg
+touch freeCodeCamp.svg
+ls --color=auto
+mkdir images
+ls --color=auto
+cp background.jpg images
+cd images
+ls --color=auto
+cd ..
+ls --color=auto
+rm background.jpg
+ls --color=auto
+cp header.png images
+c
+cp footer.jpeg images
+cd images
+ls --color=auto
+cd ..
+ls --color=auto
+rm header.png
+rm footer.jpeg
+ls --color=auto
+mv roboto.font roboto.woff
+ls --color=auto
+mv lato.font lato.ttf
+mv menlo.font menlo.otf
+ls --color=auto
+ls --color=auto
+mkdir fonts
+ls --color=auto
+mv roboto.woff fonts
+find
+mv lato.ttf fonts
+mv menlo.otf fonts
+find
+mkdir client
+mkdir client/src
+mv index.html client/src
+find
+mv index.js src
+cd src
+ls --color=auto
+mv index.js client/src
+mv index.js src/
+clear
+cd src
+ls --color=auto
+cd ./src
+find
+cd ./src
+rm src
+ls --color=auto
+clear
+cd client/src
+ls --color=auto
+cd ..
+cd ..
+mv index.js client/src
+ls --color=auto
+cd client
+ls --color=auto
+cd src
+ls --color=auto
+clear
+ls --color=auto
+cd ..
+cd ..
+ls --color=auto
+touch index.js
+mv index.js client/src
+mv styles.css client/src
+find
+find client
+find --help
+find -name index.html
+find -name styles.css
+find src
+find client/src
+find --name client/src
+find -name client/src
+find
+find client/src
+find -name client/src
+find -name /client/src
+find -name src
+ls --color=auto
+find
+cd client
+mkdir assets
+cd assets/
+mkdir images
+cd images
+touch background.jpg
+cd ..
+cd ..
+cd ..
+cd client/assets/images
+cd ../../
+cd client/assets/images
+cd assets/images
+cd ../../../
+cd images
+ls --color=auto
+cd ..
+cd images
+mv header.png ..
+ls --color=auto
+cd ..
+ls --color=auto
+find
+__vsc_prompt_cmd_original
+mv header.png ./client/assets/images
+find -name images
+mv header.png ./client/assets/images
+find -name header.png
+ls --color=auto
+cd images
+ls --color=auto
+cd ..
+find -name footer.jpeg
+mv images/footer.jpeg client/assets/images
+ls --color=auto
+cd images
+ls --color=auto
+cd ..
+find
+rmdir images
+ls --color=auto
+rm /images/background.jpg
+cd images
+ls --color=auto
+rm background.jpg
+cd ..
+rmdir images
+ls --color=auto
+mkdir icons
+ls --color=auto
+rm icons
+rmdir icons
+clear
+cd client/assets
+mkdir icons
+cd ..
+cd ..
+clear
+ls --color=auto
+find
+mkdir ./client/assets/images/icons
+mkdir ./client/assets/icons
+ls --color=auto
+mv CodeAlly.svg ./client/assets/icons
+find
+mv CodeRoad.svg ./client/assets/icons
+mv freeCodeCamp.svg ./client/assets/icons
+find
+mkdir ./client/assets/fonts
+touch ./client/assets/fonts/roboto-bold.woff
+touch ./client/assets/fonts/roboto-light.woff
+find
+ls --color=auto ./client/assets/fonts
+find ./client/assets/fonts
+touch ./client/assets/fonts/lato-bold.ttf
+touch ./client/assets/fonts/lato-light.ttf
+find
+find
+rm -rf ./fonts
+ls --color=auto
+find
+rm --help
+rm -r ./fonts
+ls --color=auto
+touch package.json
+touch server.js
+touch README.md
+ls --color=auto
+echo Yay!
+echo I finished the boilerplate!
+echo one more thing...
+echo I made this boilerplate >> README.md
+more
+more README.md
+echo from the command line >> README.md
+more README.md
+echo for the freeCodeCamp bash lessons line >> README.md
+echo for the freeCodeCamp bash lessons >> README.md
+more README.md
+cd project
+cd ..
+ls --color=auto
+mv website website-boilerplate
+ls --color=auto
+cp --help
+cp website-boilerplate toms-website
+cp -r website-boilerplate toms-website
+ls --color=auto
+find toms-website
+ls --color=auto
+find
+find website-boilerplate/
+clear
+echo goodbye terminal
+exit
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ "${VSCODE_PREVENT_SHELL_HISTORY:-}" = "1" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+[ -z "${VSCODE_PYTHON_AUTOACTIVATE_GUARD:-}" ]
+export VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+[ -n "${VSCODE_PYTHON_BASH_ACTIVATE:-}" ]
+for var in "${!VSCODE_PYTHON_@}"
+case "$var" in
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "${HISTCONTROL:-}" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+exit
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ "${VSCODE_PREVENT_SHELL_HISTORY:-}" = "1" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+[ -z "${VSCODE_PYTHON_AUTOACTIVATE_GUARD:-}" ]
+export VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+[ -n "${VSCODE_PYTHON_BASH_ACTIVATE:-}" ]
+for var in "${!VSCODE_PYTHON_@}"
+case "$var" in
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "${HISTCONTROL:-}" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+git add .
+git commit -m "relational-databases-01"
+git push
+git branch
+git push origin master
+git push master
+git push --set-upstream master master
+clear
+git init
+rm -rf .git
+clear
+git add .
+git init
+git add .
+git commit -m "01-boilerplate"
+git branch -M main
+git remote add origin git@github.com:GonzaloHaag/relational-databases-freecodecamp.git
+git push -u origin main
+git remote remove origin
+git remote add origin https://github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git push -u origin main
+git config user.name
+git remote remove origin
+git remote add origin https://github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git push -u origin main
+git push -u origin main
+git config --global --unset credential.helper
+git push -u origin main
+git remote set-url origin https://GonzaloHaag@github.com/GonzaloHaag/relational-databases-freecodecamp.git
+git push -u origin main
+clear
+rm -rf .git
+git init
+git add .
